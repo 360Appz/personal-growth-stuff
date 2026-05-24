@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Growth Quest — An interactive, adventure-based gamified personal growth experience built on the Comprehensive Personal Growth Playbook.">
+  <meta name="theme-color" content="#7B2FBE">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Growth Quest — Personal Growth Playbook">
+  <meta property="og:description" content="Gamified personal growth: audit yourself, rapid-fire questions, daily missions, and a complete playbook.">
+  <meta property="og:type" content="website">
+
+  <title>Growth Quest — Your Personal Growth Playbook</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- ── Custom cursor (desktop) ─────────────────────────── -->
+  <div id="cursor-dot"  aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ── Particle background ─────────────────────────────── -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- ════════════════════════════════════════════════════════
+       NAVIGATION
+       ════════════════════════════════════════════════════════ -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <a href="#hero" class="nav-logo" data-scroll="#hero">
+      <div class="logo-icon" aria-hidden="true">G</div>
+      <span>Growth Quest</span>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#daily-mission"   data-scroll="#daily-mission">Daily Mission</a></li>
+      <li><a href="#rapid-fire"      data-scroll="#rapid-fire">Rapid Fire</a></li>
+      <li><a href="#pillars"         data-scroll="#pillars">Pillars</a></li>
+      <li><a href="#audit"           data-scroll="#audit">Audit</a></li>
+      <li><a href="#growth-areas"    data-scroll="#growth-areas">Areas</a></li>
+      <li><a href="#systems"         data-scroll="#systems">Systems</a></li>
+      <li><a href="#growth-code"     data-scroll="#growth-code">The Code</a></li>
+      <li><a href="#special-topics"  data-scroll="#special-topics">Deep Dives</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <span class="theme-badge" aria-live="polite">Theme</span>
+      <button id="sound-toggle" aria-label="Toggle sound">🔊</button>
+      <button id="nav-burger" class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav drawer -->
+  <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
+    <div class="mobile-menu-backdrop"></div>
+    <nav class="mobile-menu-panel">
+      <div class="mobile-menu-head">
+        <span class="mobile-menu-title">Growth Quest</span>
+        <button id="nav-close" class="nav-close" aria-label="Close menu">&times;</button>
+      </div>
+      <ul class="mobile-nav-links" role="list">
+        <li><a href="#daily-mission"  data-scroll="#daily-mission">Daily Mission</a></li>
+        <li><a href="#rapid-fire"     data-scroll="#rapid-fire">Rapid Fire</a></li>
+        <li><a href="#pillars"        data-scroll="#pillars">Pillars</a></li>
+        <li><a href="#audit"          data-scroll="#audit">Audit</a></li>
+        <li><a href="#growth-areas"   data-scroll="#growth-areas">Areas</a></li>
+        <li><a href="#systems"        data-scroll="#systems">Systems</a></li>
+        <li><a href="#growth-code"    data-scroll="#growth-code">The Code</a></li>
+        <li><a href="#special-topics" data-scroll="#special-topics">Deep Dives</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+
+  <!-- ════════════════════════════════════════════════════════
+       HERO
+       ════════════════════════════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow" aria-label="Updated May 2026">
+          <span>⚔️</span> Updated May 2026
+        </div>
+
+        <h1 class="hero-title" id="hero-title">
+          <span class="line-1">Level Up</span>
+          <span class="line-2">Your Life.</span>
+        </h1>
+
+        <p class="hero-sub">
+          Your complete interactive playbook for self-awareness, discipline, communication,
+          proactivity, emotional maturity, career growth, and long-term character.
+          Not motivation. <strong>Systems.</strong>
+        </p>
+
+        <div class="hero-actions">
+          <a href="#daily-mission" class="btn-primary" data-scroll="#daily-mission">
+            ⚡ Start Your Quest
+          </a>
+          <a href="#audit" class="btn-ghost" data-scroll="#audit">
+            📊 Audit Yourself
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-orb"></div>
+
+        <div class="hero-card-float" style="animation-name:heroFloat2">
+          <div class="float-emoji">🎯</div>
+          <strong>Behavior is the receipt.</strong>
+        </div>
+
+        <div class="hero-card-float" style="animation-name:heroFloat3">
+          <div class="float-emoji">⚡</div>
+          <strong>You fall to your systems, not your intentions.</strong>
+        </div>
+
+        <div class="hero-card-float" style="animation-name:heroFloat">
+          <div class="float-emoji">🔥</div>
+          <strong>Ownership gives you leverage.</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Scroll to begin
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       STATS BAR
+       ════════════════════════════════════════════════════════ -->
+  <div id="stats-bar" role="region" aria-label="Your progress stats">
+    <div class="stat-chip">
+      <div class="stat-level" aria-label="Current level">🌱 Seedling</div>
+    </div>
+    <div class="stat-chip">
+      <div class="stat-xp" aria-label="Total XP">0 XP</div>
+    </div>
+    <div class="stat-chip">
+      <div class="stat-streak" aria-label="Current streak">🔥 0d</div>
+    </div>
+    <div class="xp-bar-wrap" aria-hidden="true">
+      <div class="xp-bar-track">
+        <div class="xp-bar-fill" style="width:0%"></div>
+      </div>
+      <div class="xp-next">0 XP to Apprentice</div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════
+       DAILY MISSION
+       ════════════════════════════════════════════════════════ -->
+  <section id="daily-mission" aria-labelledby="mission-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">Daily Mission</span>
+      <h2 class="section-title" id="mission-heading">
+        Today's <span class="accent">Drops</span>
+      </h2>
+    </div>
+
+    <div id="greeting" class="greeting-band" role="status" aria-live="polite">
+      ☀️ Morning, Quester
+    </div>
+
+    <div class="mission-grid">
+      <!-- Quote of the Day -->
+      <div class="qotd-card" role="region" aria-labelledby="qotd-heading">
+        <span class="qotd-label" id="qotd-heading">Quote of the Day</span>
+        <p id="qotd-text" aria-live="polite">"Loading..."</p>
+        <span id="qotd-source">— Playbook</span>
+      </div>
+
+      <!-- Question of the Day -->
+      <div class="qod-card" role="region" aria-labelledby="qod-heading">
+        <div class="qod-badge" id="qod-heading">
+          🎯 Question of the Day
+        </div>
+        <div id="qod-cat" aria-label="Category">Category</div>
+        <p id="qod-text" aria-live="polite">Loading today's question...</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       RAPID FIRE
+       ════════════════════════════════════════════════════════ -->
+  <section id="rapid-fire" aria-labelledby="rf-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">Rapid Fire</span>
+      <h2 class="section-title" id="rf-heading">
+        Question <span class="accent">Deck</span>
+      </h2>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">
+        Tap each card. Answer honestly. Hourly shuffle keeps it fresh.
+      </p>
+    </div>
+    <div id="rapid-fire-container"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       GROWTH PILLARS
+       ════════════════════════════════════════════════════════ -->
+  <section id="pillars" aria-labelledby="pillars-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">The Framework</span>
+      <h2 class="section-title" id="pillars-heading">
+        5 <span class="accent">Pillars</span>
+      </h2>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">
+        The core system of personal growth. Each pillar builds on the last.
+      </p>
+    </div>
+    <div id="pillars-carousel" aria-label="Growth pillars carousel"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       AUDIT
+       ════════════════════════════════════════════════════════ -->
+  <section id="audit" aria-labelledby="audit-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">Self-Assessment</span>
+      <h2 class="section-title" id="audit-heading">
+        Growth <span class="accent">Audit</span>
+      </h2>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">
+        Rate yourself 1–10 on each area. No score without evidence. +10 XP per area rated.
+      </p>
+    </div>
+    <div id="audit-carousel" aria-label="Growth audit carousel"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       GROWTH AREAS A–H
+       ════════════════════════════════════════════════════════ -->
+  <section id="growth-areas" aria-labelledby="areas-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">Deep Playbook</span>
+      <h2 class="section-title" id="areas-heading">
+        8 Growth <span class="accent">Areas</span>
+      </h2>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">
+        Communication, Proactivity, Follow-through, Discipline, Emotional Maturity, Career, Leadership, Relationships.
+      </p>
+    </div>
+    <div id="areas-carousel" aria-label="Growth areas carousel"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       WEAKNESS → SYSTEM
+       ════════════════════════════════════════════════════════ -->
+  <section id="weakness-system" aria-labelledby="ws-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">Converter</span>
+      <h2 class="section-title" id="ws-heading">
+        Weakness <span class="accent">→ System</span>
+      </h2>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">
+        Every weakness has a system that tames it.
+      </p>
+    </div>
+    <div id="weakness-carousel" aria-label="Weakness to system converter carousel"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SYSTEMS & TEMPLATES
+       ════════════════════════════════════════════════════════ -->
+  <section id="systems" aria-labelledby="systems-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">Operating System</span>
+      <h2 class="section-title" id="systems-heading">
+        Daily / Weekly / <span class="accent">Monthly</span>
+      </h2>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">
+        Use these templates. Most growth is boring. Review. Update. Repeat.
+      </p>
+    </div>
+    <div id="systems-carousel" aria-label="Daily weekly monthly systems carousel"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       COMMUNICATION SCRIPTS
+       ════════════════════════════════════════════════════════ -->
+  <section id="scripts" aria-labelledby="scripts-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">Use These Today</span>
+      <h2 class="section-title" id="scripts-heading">
+        Communication <span class="accent">Scripts</span>
+      </h2>
+    </div>
+    <div id="scripts-carousel" aria-label="Communication scripts carousel"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       GROWTH MAP
+       ════════════════════════════════════════════════════════ -->
+  <section id="growth-map" aria-labelledby="map-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">12-Month Plan</span>
+      <h2 class="section-title" id="map-heading">
+        Growth <span class="accent">Map</span>
+      </h2>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">
+        One focus per month. Shuffled daily so you never see the same order twice.
+      </p>
+    </div>
+    <div id="growth-map-carousel" aria-label="12-month growth map carousel"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       TEMPERAMENTS
+       ════════════════════════════════════════════════════════ -->
+  <section id="temperaments" aria-labelledby="temp-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">Know Your Pattern</span>
+      <h2 class="section-title" id="temp-heading">
+        Growth by <span class="accent">Temperament</span>
+      </h2>
+    </div>
+    <div id="temperaments-carousel" aria-label="Temperaments carousel"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SIGNS OF GROWTH
+       ════════════════════════════════════════════════════════ -->
+  <section id="signs" aria-labelledby="signs-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">Reality Check</span>
+      <h2 class="section-title" id="signs-heading">
+        Are You Actually <span class="accent">Growing?</span>
+      </h2>
+    </div>
+    <div class="signs-grid">
+      <div class="signs-panel">
+        <h3 class="signs-panel-title growing">✓ Signs You Are Growing</h3>
+        <ul id="signs-growing" aria-label="Signs of genuine growth"></ul>
+      </div>
+      <div class="signs-panel">
+        <h3 class="signs-panel-title not-growing">⚠ Signs You Are Not Growing</h3>
+        <ul id="signs-not-growing" aria-label="Signs you are not growing"></ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       STOP DOING LIST
+       ════════════════════════════════════════════════════════ -->
+  <section id="stop-doing" aria-labelledby="stop-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">Cut It Out</span>
+      <h2 class="section-title" id="stop-heading">
+        Stop <span class="accent">Doing This</span>
+      </h2>
+    </div>
+    <div id="stop-carousel" aria-label="Stop doing list carousel"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SKILL STACK
+       ════════════════════════════════════════════════════════ -->
+  <section id="skills" aria-labelledby="skills-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">Career Capital</span>
+      <h2 class="section-title" id="skills-heading">
+        Skill <span class="accent">Stack</span>
+      </h2>
+    </div>
+    <div id="skills-carousel" aria-label="Skill stack carousel"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       GROWTH CODE
+       ════════════════════════════════════════════════════════ -->
+  <section id="growth-code" aria-labelledby="code-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">The Code</span>
+      <h2 class="section-title" id="code-heading">
+        Personal Growth <span class="accent">Code</span>
+      </h2>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">
+        A grounded life code. 15 principles. Word for word.
+      </p>
+    </div>
+    <div id="code-carousel" class="carousel-root" aria-label="The 15 personal growth codes"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       PERSONAL GROWTH RULES
+       ════════════════════════════════════════════════════════ -->
+  <section id="rules" aria-labelledby="rules-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">Non-Negotiables</span>
+      <h2 class="section-title" id="rules-heading">
+        7 Growth <span class="accent">Rules</span>
+      </h2>
+    </div>
+    <div id="rules-carousel" class="carousel-root" aria-label="The 7 personal growth rules"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SPECIAL TOPICS (Sections 48–60, n3)
+       ════════════════════════════════════════════════════════ -->
+  <section id="special-topics" aria-labelledby="topics-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">2025–26 Research Updates</span>
+      <h2 class="section-title" id="topics-heading">
+        Deep <span class="accent">Dives</span>
+      </h2>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">
+        Sleep regularity, self-compassion, nature, ACT, post-traumatic growth, neurodivergence,
+        grief, gut-brain, loneliness, AI tools, journaling, money & mental health, growth mindset evidence.
+      </p>
+    </div>
+    <div id="topics-carousel" aria-label="Special topics carousel"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       UPDATED EVIDENCE
+       ════════════════════════════════════════════════════════ -->
+  <section id="evidence" aria-labelledby="ev-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">Evidence Updates</span>
+      <h2 class="section-title" id="ev-heading">
+        What's Changed <span class="accent">Since</span>
+      </h2>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">
+        Corrected evidence statements — updated through May 2026.
+      </p>
+    </div>
+    <div id="evidence-carousel" aria-label="Corrected evidence statements carousel"></div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       BOTTOM LINE
+       ════════════════════════════════════════════════════════ -->
+  <section id="bottom-line-section" aria-labelledby="bl-heading" class="reveal">
+    <div class="section-header">
+      <span class="section-label">The Point</span>
+      <h2 class="section-title" id="bl-heading">
+        Bottom <span class="accent">Line</span>
+      </h2>
+    </div>
+    <div id="bottom-line"></div>
+  </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-logo">⚔️ Growth Quest</div>
+    <p>
+      Built on the Comprehensive Personal Growth Playbook.<br>
+      Content current as of May 24, 2026.<br>
+      Research on psychology, health behavior, and wellbeing continues to evolve —
+      the strongest practical foundations remain stable.
+    </p>
+    <p class="footer-updated">
+      Sections: 48. Sleep Regularity · 49. Self-Compassion · 50. Nature · 51. ACT ·
+      52. Post-Traumatic Growth · 53. Neurodivergence · 54. Grief · 55. Gut-Brain ·
+      56. Loneliness · 57. AI Tools · 58. Journaling · 59. Money & Mental Health ·
+      60. Growth Mindset Evidence
+    </p>
+  </footer>
+
+  <!-- ── ES Module entry ──────────────────────────────────── -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
